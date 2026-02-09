@@ -30,3 +30,4 @@ def create_comment(db:Session, message: str, post_id:int):
 
 def get_comments_by_post(db:Session, post_id: int):
     return db.query(Comment).filter(Comment.post_id == post_id).all()
+
