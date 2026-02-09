@@ -1,6 +1,6 @@
 from app.database import engine, session
 from app.models import Base, Post
-from app.crud import crud
+from app import crud
 from sqlalchemy.orm import joinedload
 
 Base.metadata.create_all(bind=engine)
@@ -14,14 +14,15 @@ post2 = crud.create_post(db, user.id, "My Second Post", "More content")
 comment1 = crud.create_comment(db, post1.id, "Great post brother")
 comment2 = crud.create_comment(db, post1.id, "Thanks for sharing")
 
-posts = crud.get_posts_by_user(db, user.id)
+posts = crud.get_posts_by_user(db, 1)
 for post in posts:
     print(post, post.comments)
     
 posts_with_comments = db.query(Post).options(joinedload(Post.comments)).all()
-for post in posts:
+for post in posts_with_comments:
     print(post.title)
     for comment in post.comments:
         print(comment.message)
         
 db.close()
+
