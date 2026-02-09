@@ -7,7 +7,7 @@ Users can write posts, and posts can have comments.
 
 ## Project Structure
 
-sqlalchemy_blog_project/
+```sqlalchemy_blog_project/
 ├── app/
 │ ├── init.py
 │ ├── database.py # engine + session
@@ -17,7 +17,7 @@ sqlalchemy_blog_project/
 ├── venv/
 ├── requirements.txt
 └── blog.db
-
+```
 
 ---
 
